@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎉 Birthday Gift Card 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad390);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      max-width: 600px;
+      width: 90%;
+      position: relative;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ff4081;
+      margin-bottom: 20px;
+    }
+    .typing {
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      color: #333;
+      white-space: pre-line;
+      border-right: 3px solid #ff4081;
+      display: inline-block;
+      animation: blink 0.7s infinite;
+      text-align: left;
+    }
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="title">🎂 Happy Birthday! 🎉</h1>
+    <p class="typing" id="message"></p>
+  </div>
+
+  <script>
+    // Popup se naam lena
+    let friendName = prompt("Apne dost ka naam likho:");
+    if(!friendName) friendName = "My Friend";
+
+    // Heading me naam lagana
+    document.getElementById("title").innerText = `🎂 Happy Birthday, ${friendName}! 🎉`;
+
+    // Bada paragraph
+    const paragraph = `Dear ${friendName},  
+Today is all about YOU! 🎉 May this special day bring endless happiness, laughter, and unforgettable memories. 
+You are not just a friend but a blessing, and I hope all your dreams come true. 🌟  
+
+May your year ahead be filled with success, adventures, and lots of joy.  
+Always keep smiling, because your smile makes the world brighter! 🌈✨  
+
+Once again, wishing you the happiest birthday ever 🥳🎂🎁`;
+
+    // Typing animation
+    let i = 0;
+    function typeWriter() {
+      if (i < paragraph.length) {
+        document.getElementById("message").innerHTML += paragraph.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40); // speed (ms)
+      }
+    }
+    typeWriter();
+  </script>
+</body>
+</html>
